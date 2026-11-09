@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../core/theme/app_theme.dart';
@@ -49,3 +50,56 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+=======
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../core/theme/app_theme.dart';
+
+class CustomTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final bool obscureText;
+  final TextInputType keyboardType;
+  final String? Function(String?)? validator;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final void Function(String)? onChanged;
+
+  final List<TextInputFormatter>? inputFormatters;
+  final AutovalidateMode? autovalidateMode;
+
+  const CustomTextField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.text,
+    this.validator,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.onChanged,
+    this.inputFormatters,
+    this.autovalidateMode,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      obscureText: obscureText,
+      keyboardType: keyboardType,
+      validator: validator,
+      onChanged: onChanged,
+      inputFormatters: inputFormatters,
+      autovalidateMode: autovalidateMode,
+      style: const TextStyle(color: AppTheme.textPrimary, fontSize: 14),
+      decoration: InputDecoration(
+        hintText: hintText,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+        // The rest of the decoration is handled by AppTheme's inputDecorationTheme
+      ),
+    );
+  }
+}
+>>>>>>> 8c695f42425a335d8a397c348c5f55fc5533fd59
